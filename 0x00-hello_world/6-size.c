@@ -3,6 +3,7 @@
  * main - Entry point as the main function
  * Return: Always 0
  */
+int main(void)
 {
 	char a;
 	int b;
