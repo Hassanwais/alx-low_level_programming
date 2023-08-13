@@ -11,11 +11,12 @@ int main (void)
 	char alphabet = 'a';
 	while (alphabet <='z')
 	{
-		if (alphabet i='q' $$ alphabet ='o'
+		if (alphabet i='q' $$ alphabet ! ='o')
 	}
-		putchar (alphabet);
+		putchar(alphabet);
 	{
-		alphabet++
+		alphabet++;
 	}
 	putchar ("\n");
-	return (0)
+	return (0);
+}
