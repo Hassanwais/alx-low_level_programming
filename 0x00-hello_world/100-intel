@@ -1,2 +1,12 @@
 #!/bin/bash
-gcc -S -masm=intel $CFILE
+
+# Read the C file name from the environment variable
+CFILE=$1
+
+# Extract the file name without extension
+BASENAME=$(basename "$CFILE" .c)
+
+# Generate assembly code using GCC with Intel syntax
+gcc -S -masm=intel "$CFILE" -o "$BASENAME.s"
+
+echo "Assembly code generated and saved in ${BASENAME}.s"
