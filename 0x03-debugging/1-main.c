@@ -7,8 +7,7 @@
 
 int main(void)
 {
-/*This code was causing an infinite loop*/
-/* int i;*/
+/* 	int i;*/
 
 	printf("Infinite loop incoming :(\n");
 
