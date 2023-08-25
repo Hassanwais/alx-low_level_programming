@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <ctype.h>
-
 /**
- * cap_string - Capitalizes the first letter of each word in a string.
+ * cap_string - Capitalizes the first letter of
+ * each word in a string.
  * @str: Pointer to the input string.
  * Return: Pointer to the modified string.
  */
@@ -22,8 +22,19 @@ char *cap_string(char *str)
 				str[i] = toupper(str[i]);
 				new_word = false;
 			}
+			else
+			{
+				str[i] = tolower(str[i]);
+			}
 		}
 		else
+		{
+			new_word = true;
+		}
+		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+				str[i] == ',' || str[i] == ';' || str[i] == '.' ||
+				str[i] == '!' || str[i] == '?' || str[i] == '"' ||
+				str[i] == '(' || str[i] == ')' || str[i] == '{' || str[i] == '}')
 		{
 			new_word = true;
 		}
