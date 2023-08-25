@@ -43,12 +43,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[i] = '\0';
 	return (r);
 }
-/**
- * main - a function that adds two numbers
- * Return: Always 0
- *
- */
-int main(void)
+
 {
 	char n1[] = "123456789";
 	char n2[] = "987654321";
