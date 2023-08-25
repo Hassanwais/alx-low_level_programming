@@ -3,16 +3,6 @@
 #include <unistd.h>
 
 /**
- * _putchar - Custom putchar function.
- * @c: Character to be printed.
- * Return: Always 0.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * print_number - Prints an integer.
  * @n: Integer to be printed.
  */
