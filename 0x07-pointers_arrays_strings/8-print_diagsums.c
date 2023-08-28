@@ -8,14 +8,14 @@
  */
 void print_diagsums(int *a, int size)
 {
-    int sum_diag1 = 0, sum_diag2 = 0;
+	int sum_diag1 = 0, sum_diag2 = 0;
+	int i;
 
-    for (int i = 0; i < size; i++)
-    {
-        sum_diag1 += a[i * size + i]; // Elements on the main diagonal
-        sum_diag2 += a[i * size + (size - 1 - i)]; // Elements on the opposite diagonal
-    }
-
-    printf("Sum of diagonal 1: %d\n", sum_diag1);
-    printf("Sum of diagonal 2: %d\n", sum_diag2);
+	for (i = 0; i < size; i++)
+	{
+		sum_diag1 += a[i * size + i];
+		sum_diag2 += a[i * size + (size - 1 - i)];
+	}
+	printf("Sum of diagonal 1: %d\n", sum_diag1);
+	printf("Sum of diagonal 2: %d\n", sum_diag2);
 }
