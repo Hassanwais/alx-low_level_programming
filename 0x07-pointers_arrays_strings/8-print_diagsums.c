@@ -8,7 +8,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int sum_diag1 = 0, sum_diag2 = 0;
+	long int sum_diag1 = 0, sum_diag2 = 0;
 	int i;
 
 	for (i = 0; i < size; i++)
@@ -16,6 +16,5 @@ void print_diagsums(int *a, int size)
 		sum_diag1 += a[i * size + i];
 		sum_diag2 += a[i * size + (size - 1 - i)];
 	}
-	printf("%d\n", sum_diag1);
-	printf("%d\n", sum_diag2);
+	printf("%ld, %ld\n", sum_diag1, sum_diag2);
 }
