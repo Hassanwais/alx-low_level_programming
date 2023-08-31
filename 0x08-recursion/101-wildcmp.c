@@ -9,36 +9,19 @@
  */
 int wildcmp(char *s1, char *s2)
 {
-	int i = 0, j = 0, asterisk = -1, match;
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
 
-	while (s1[i] != '\0')
+	if (*s2 == '*')
 	{
-		if (s2[j] == '*')
-		{
-			asterisk = j;
-			match = i;
-			j++;
-		}
-		else if (s1[i] != s2[j])
-		{
-			if (asterisk != -1)
-			{
-				j = asterisk + 1;
-				i = match + 1;
-				match++;
-			}
-			else
-				return (0);
-		}
-		else
-		{
-			i++;
-			j++;
-		}
+		if (wildcmp(s1, s2 + 1)) /* Skip '*'. */
+			return (1);
+		if (*s1 != '\0' && wildcmp(s1 + 1, s2)) /* Match '*' with characters. */
+			return (1);
 	}
 
-	while (s2[j] == '*')
-		j++;
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1)); /* Move to next characters. */
 
-	return (s2[j] == '\0');
+	return (0);
 }
