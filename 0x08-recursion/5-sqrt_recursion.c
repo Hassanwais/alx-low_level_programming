@@ -7,7 +7,7 @@
  * @end: The ending point for the search.
  *
  * Return: The natural square root of n, or -1 if n does not have a
- *         natural square root.
+ * natural square root.
  */
 int _find_sqrt(int n, int start, int end);
 
@@ -16,7 +16,7 @@ int _find_sqrt(int n, int start, int end);
  * @n: The number for which to find the square root.
  *
  * Return: The natural square root of n, or -1 if n does not have a
- *         natural square root.
+ * natural square root.
  */
 int _sqrt_recursion(int n)
 {
@@ -36,7 +36,7 @@ int _sqrt_recursion(int n)
  * @end: The ending point for the search.
  *
  * Return: The natural square root of n, or -1 if n does not have a
- *         natural square root.
+ * natural square root.
  */
 int _find_sqrt(int n, int start, int end)
 {
