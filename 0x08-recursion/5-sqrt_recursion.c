@@ -31,7 +31,7 @@ int _sqrt_recursion(int n)
 
 int _find_sqrt(int n, int start, int end)
 {
-	int mid = (start + end) / 2;
+	int mid = (start + end) / 2.0;
 
 	if (mid * mid == n)
 		return (mid);
