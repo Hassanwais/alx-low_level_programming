@@ -6,12 +6,12 @@
  * @argc: The number of command line arguments
  * @argv: An array of strings containing the command line arguments
  *
- * Return: 0 if successful, 1 if there are errors or no numbers are provided
+ * Return: 0 if successful, 1 if there are errors or no numbers are providedl
  */
 int main(int argc, char *argv[])
 {
-	int sum = 0;
 	int i;
+	int sum = 0;
 
 	if (argc == 1)
 	{
