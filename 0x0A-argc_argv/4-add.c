@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
 	int i;
 	int sum = 0;
+	int num;
 
 	if (argc == 1)
 	{
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		int num = atoi(argv[i]);
+		num = atoi(argv[i]);
 
 		if (num <= 0)
 		{
