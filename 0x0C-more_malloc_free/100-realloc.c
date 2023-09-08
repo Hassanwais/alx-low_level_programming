@@ -12,82 +12,34 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-    void *new_ptr;
+	void *new_ptr;
 
-    if (new_size == old_size)
-        return (ptr);
+	if (new_size == old_size)
+		return (ptr);
 
-    if (ptr == NULL)
-    {
-        new_ptr = malloc(new_size);
-        if (new_ptr == NULL)
-            return (NULL);
-        return (new_ptr);
-    }
+	if (ptr == NULL)
+	{
+		new_ptr = malloc(new_size);
+		if (new_ptr == NULL)
+			return (NULL);
+		return (new_ptr);
+	}
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
 
-    if (new_size == 0)
-    {
-        free(ptr);
-        return (NULL);
-    }
+	new_ptr = malloc(new_size);
 
-    new_ptr = malloc(new_size);
+	if (new_ptr == NULL)
+		return (NULL);
 
-    if (new_ptr == NULL)
-        return (NULL);
+	if (new_size < old_size)
+		old_size = new_size;
 
-    if (new_size < old_size)
-        old_size = new_size;
+	memcpy(new_ptr, ptr, old_size);
+	free(ptr);
 
-    memcpy(new_ptr, ptr, old_size);
-    free(ptr);
-
-    return (new_ptr);
+	return (new_ptr);
 }
-
-int main(void)
-{
-    unsigned int old_size = 5;
-    unsigned int new_size = 10;
-
-    int *ptr = (int *)malloc(old_size * sizeof(int));
-
-    if (ptr != NULL)
-    {
-        for (unsigned int i = 0; i < old_size; i++)
-        {
-            ptr[i] = i;
-        }
-
-        int *new_ptr = (int *)_realloc(ptr, old_size * sizeof(int), new_size * sizeof(int));
-
-        if (new_ptr != NULL)
-        {
-            printf("Original Array:\n");
-            for (unsigned int i = 0; i < old_size; i++)
-            {
-                printf("%d ", ptr[i]);
-            }
-
-            printf("\nNew Array:\n");
-            for (unsigned int i = 0; i < new_size; i++)
-            {
-                printf("%d ", new_ptr[i]);
-            }
-
-            free(new_ptr);
-        }
-        else
-        {
-            printf("Memory reallocation failed.\n");
-            free(ptr);
-        }
-    }
-    else
-    {
-        printf("Memory allocation failed.\n");
-    }
-
-    return (0);
-}
-
