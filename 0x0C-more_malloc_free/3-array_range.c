@@ -10,42 +10,21 @@
  */
 int *array_range(int min, int max)
 {
-    if (min > max)
-        return (NULL);
+	int i;
+	int *arr;
 
-    int *arr = (int *)malloc(sizeof(int) * (max - min + 1));
+	if (min > max)
+		return (NULL);
 
-    if (arr == NULL)
-        return (NULL);
+	arr = (int *)malloc(sizeof(int) * (max - min + 1));
 
-    for (int i = 0; i <= max - min; i++)
-    {
-        arr[i] = min + i;
-    }
+	if (arr == NULL)
+		return (NULL);
 
-    return (arr);
+	for (i = 0; i <= max - min; i++)
+	{
+		arr[i] = min + i;
+	}
+
+	return (arr);
 }
-
-int main(void)
-{
-    int min = 1;
-    int max = 5;
-
-    int *result = array_range(min, max);
-
-    if (result != NULL)
-    {
-        for (int i = 0; i <= max - min; i++)
-        {
-            printf("%d ", result[i]);
-        }
-        free(result);
-    }
-    else
-    {
-        printf("Memory allocation failed.\n");
-    }
-
-    return (0);
-}
-
