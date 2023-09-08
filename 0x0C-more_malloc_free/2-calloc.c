@@ -10,50 +10,27 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-    void *ptr;
+	unsigned int i;
+	unsigned int total_size;
+	void *ptr;
+	unsigned char *byte_ptr;
 
-    if (nmemb == 0 || size == 0)
-        return (NULL);
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 
-    ptr = malloc(nmemb * size);
+	total_size = nmemb * size;
 
-    if (ptr == NULL)
-        return (NULL);
+	ptr = malloc(total_size);
 
-    // Initialize the allocated memory to zero
-    unsigned int total_size = nmemb * size;
-    unsigned char *byte_ptr = (unsigned char *)ptr;
+	if (ptr == NULL)
+		return (NULL);
 
-    for (unsigned int i = 0; i < total_size; i++)
-    {
-        byte_ptr[i] = 0;
-    }
+	byte_ptr = (unsigned char *)ptr;
 
-    return (ptr);
+	for (i = 0; i < total_size; i++)
+	{
+		byte_ptr[i] = 0;
+	}
+
+	return (ptr);
 }
-
-int main(void)
-{
-    unsigned int nmemb = 5;
-    unsigned int size = sizeof(int);
-
-    int *arr = (int *)_calloc(nmemb, size);
-
-    if (arr != NULL)
-    {
-        // Print the initialized elements of the array
-        for (unsigned int i = 0; i < nmemb; i++)
-        {
-            printf("%d ", arr[i]);
-        }
-
-        free(arr); // Free the allocated memory
-    }
-    else
-    {
-        printf("Memory allocation failed.\n");
-    }
-
-    return (0);
-}
-
